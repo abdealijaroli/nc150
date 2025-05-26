@@ -11,7 +11,7 @@ class Solution:
         
         i, j = 0, 0
         while j < len(s2):
-            while (j-i) < len(s1):
+            while (j-i) != len(s1):
                 s2count[s2[j]] = 1 + s2count.get(s2[j], 0)
                 j += 1            
             
@@ -21,7 +21,6 @@ class Solution:
                 s2count[s2[i]] -= 1
                 if s2count[s2[i]] == 0:
                     del s2count[s2[i]]
-
                 i += 1
         
         return False
