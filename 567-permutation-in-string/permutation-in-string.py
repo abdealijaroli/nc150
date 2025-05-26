@@ -11,18 +11,19 @@ class Solution:
         
         i, j = 0, 0
         while j < len(s2):
-            while (j-i) != len(s1):
-                s2count[s2[j]] = 1 + s2count.get(s2[j], 0)
-                j += 1            
+            s2count[s2[j]] = 1 + s2count.get(s2[j], 0)
             
-            if s1count == s2count:
-                return True
-            else:
+            if (j-i+1) == len(s1):
+                if s1count == s2count:
+                    return True
+                
                 s2count[s2[i]] -= 1
                 if s2count[s2[i]] == 0:
                     del s2count[s2[i]]
                 i += 1
-        
+                
+            j += 1
+
         return False
              
 
